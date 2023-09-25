@@ -1,0 +1,18 @@
+<h1>exercicio 2</h1>
+<button class="btn btn-outline-info"> clique aqui para se sentir em casa</button>
+@{
+    string nome = "guilima lekin criador disso papai";
+}
+<h1>ola, @nome</h1>
+<p> hoje é @DateTime.Now.ToString("dddd dd/MM/yyyy hh:dd")</p>
+
+@{
+    bool mostrarMensagem = true;
+    if(mostrarMensagem == true){
+        <p> esta e uma mensagem que entrou no if para tabuada</p>
+    }
+    for(int i=1; i <= 10; i++){
+        int res = i*10;
+        <p> 10 x @i = @res </p>
+    }
+}
