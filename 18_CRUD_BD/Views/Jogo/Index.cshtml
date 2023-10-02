@@ -1,0 +1,70 @@
+@model IEnumerable<_18_CRUD_BD.Models.Jogo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>adicione seu jogo</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-danger">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imagem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-outline-danger" asp-route-id="@item.JogoId">Editar <i class="bi bi-pen  mx-1 px1"></i></a> |
+                <a asp-action="Details" class= "btn btn-outline-dark"asp-route-id="@item.JogoId">configurações <i class="bi bi-gear  mx-1 px1"></i></a> |
+                <a asp-action="Delete" class= "btn btn-outline-primary" asp-route-id="@item.JogoId">Deletar<i class="bi bi-trash  mx-1 px1"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-12 col-lg-3 ">
+            <div class="card " >
+                <img class="card-img-top " src="@Html.DisplayFor(modelItem => item.Imagem)" alt="Imagem de capa do card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nome)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Descricao)</p>
+                    <a href="#" class="btn btn-primary ">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
